@@ -11,13 +11,13 @@ import atmosphereFragmentShader from './shaders/atmosphereFragment.glsl';
 
 // set the scene, the camera and the renderer
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'),
   antialias: true
 });
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(innerWidth, innerHeight);
 camera.position.set(0, 0, 12);
 renderer.render(scene, camera);
 
@@ -89,6 +89,12 @@ scene.add(stars);
 animate();
 
 ///////////////////////// FUNCTIONS AND EVENTS ////////////////////////////////
+
+window.addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
 
 // animation loop
 function animate() {
