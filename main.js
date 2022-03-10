@@ -35,7 +35,7 @@ const earth = new THREE.Mesh(
     fragmentShader: fragmentShader,
     uniforms: {
       globeTexture: {
-        value: new THREE.TextureLoader().load('./assets/textures/earth.jpg')
+        value: new THREE.TextureLoader().load('./earth.jpg')
       },
     }
   })
