@@ -105,5 +105,7 @@ function animate() {
   // Rotation of the Earth
   earth.rotateOnWorldAxis(new THREE.Vector3(-Math.sin(0.375), Math.cos(0.375), 0), 0.001);
 
+  camera.lookAt(earth.position);
+
   renderer.render(scene, camera);
 }
