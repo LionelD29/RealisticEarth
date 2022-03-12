@@ -42,6 +42,7 @@ const earth = new THREE.Mesh(
 );
 
 earth.rotateZ(0.375); // 21.5° in radians
+camera.lookAt(earth.position);
 
 // Atmosphere
 const atmosphere = new THREE.Mesh(
